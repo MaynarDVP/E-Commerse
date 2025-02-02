@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { ILoginForm } from "@/Interfaces/ILoginForm";
@@ -52,10 +53,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(()=> {
-    const cartproducts = localStorage.removeItem("cart")
-  })
+    localStorage.removeItem("cart");
+  }, []);
 
   const login = async (LoginForm: ILoginForm) => {
+    if (!LoginForm) return; // Evita la advertencia de que no se usa
     const res = await axios.post(`${APIFETCH}/users/login`, LoginForm);
     setUser(res.data.user);
     setToken(res.data.token);
@@ -76,6 +78,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const register = async (RegisterForm: IRegisterForm) => {
+    if (!RegisterForm) return; 
     const res = await axios.post(`${APIFETCH}/users/register`, RegisterForm);
     router.push("/login")
     return res;

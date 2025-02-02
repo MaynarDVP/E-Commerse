@@ -3,6 +3,7 @@
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import axios from "axios";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -144,7 +145,7 @@ const ShoppingCart: React.FC = () => {
               className="flex items-center justify-between bg-white shadow-sm rounded-lg p-4 mb-4"
             >
               <div className="flex items-center">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
                   className="w-16 h-16 object-cover rounded-md"

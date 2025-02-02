@@ -7,6 +7,7 @@ import { IProduct } from "@/Interfaces/IProduct";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Dashboard: React.FC = () => {
   const { user, token } = useAuth();
@@ -94,9 +95,11 @@ const Dashboard: React.FC = () => {
                     <ul className="pl-6 space-y-2">
                       {order.products.map((product: IProduct) => (
                         <li key={product.id} className="flex items-center space-x-4">
-                          <img
+                          <Image
                             src={product.image}
                             alt={product.name}
+                            width={40}
+                            height={40}
                             className="w-16 h-16 object-cover rounded"
                           />
                           <div>

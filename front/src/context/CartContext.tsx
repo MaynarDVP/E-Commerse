@@ -1,7 +1,7 @@
 "use client";
 
 import { IProduct } from "@/Interfaces/IProduct";
-import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext"; 
 import { createContext, useContext, useEffect, useState } from "react";
 
 interface ICartContext {
@@ -24,20 +24,25 @@ const CartContext = createContext<ICartContext>({
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<IProduct[]>([]);
-  const router = useRouter();
+  const { user } = useAuth();
 
   useEffect(() => {
     const savedItems = localStorage.getItem("cart");
     if (savedItems) {
       setItems(JSON.parse(savedItems));
-    }else if (!savedItems){
-      return ([])
     }
   }, []);
+
+  useEffect(() => {
+    if (!user) {
+      emptyCart();
+    }
+  }, [user]);
 
   const updateLocalStorage = (updatedItems: IProduct[]) => {
     localStorage.setItem("cart", JSON.stringify(updatedItems));
   };
+
   const addItemToCart = (item: IProduct) => {
     const updatedItems = [...items, item];
     setItems(updatedItems);
@@ -62,7 +67,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const existingItems = items.filter((item) => item.id === id);
 
     if (existingItems.length > 0) {
-      // Add the correct quantity
       updatedItems.push(
         ...items.filter((item) => item.id !== id),
         ...new Array(quantity).fill(existingItems[0])
@@ -78,7 +82,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const emptyCart = () => {
     setItems([]);
     localStorage.removeItem("cart");
-    router.push("/");
   };
 
   const countItems = (id: number): number => {

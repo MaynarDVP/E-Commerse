@@ -1,13 +1,14 @@
-
 import { GetProductById } from "@/api/DataFetchs";
 import AddProduct from "@/components/Product.Buttons";
+import Image from "next/image";
+
 
 interface ProductProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // 👈 Debe manejarse como una promesa
 }
 
-export default  async function Product({ params }: ProductProps) {
-  const { slug } = await params;
+export default async function Product({ params }: ProductProps) {
+  const { slug } = await params; // 👈 Ahora se espera correctamente
 
   try {
     const product = await GetProductById(slug);
@@ -24,7 +25,7 @@ export default  async function Product({ params }: ProductProps) {
         {/* Sección de la imagen */}
         <div>
           <div className="bg-gray-100 p-4 rounded-lg">
-            <img
+            <Image
               src={product.image}
               alt={product.name}
               width={400}

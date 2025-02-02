@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { GetProducts } from "@/api/DataFetchs"
 import { IProduct } from "@/Interfaces/IProduct";
+import Image from "next/image";
 
 
 
@@ -38,9 +39,11 @@ const Cardlist: React.FC = () => {
             <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer">
               {/* Product Image */}
               <div className="relative w-full h-48">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width= {300}
+                  height={300}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
