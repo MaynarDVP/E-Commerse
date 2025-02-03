@@ -33,8 +33,8 @@ const Navbar = () => {
               src="/tech.svg"
               alt="DevShop"
               className="object-cover rounded-md"
-              width={48} // Tamaño uniforme
-              height={48} // Tamaño uniforme
+              width={48} 
+              height={48} 
             />
           </div>
           <h1 className="text-2xl font-semibold text-white">DevShop</h1>
@@ -75,8 +75,8 @@ const Navbar = () => {
                   src="/profile.svg"
                   alt="profile"
                   className="rounded-full hover:opacity-80 transition-opacity"
-                  width={48} // Tamaño uniforme
-                  height={48} // Tamaño uniforme
+                  width={48} 
+                  height={48}
                 />
                 <span className="ml-2 text-white font-semibold hidden sm:block">
                   Hi, {user?.name}
