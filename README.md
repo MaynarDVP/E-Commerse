@@ -18,6 +18,7 @@ DevShop is a fullstack e-commerce application built to showcase my skills in bot
 
 🔹 Responsive UI: Modern and clean user interface built with Next.js and TailwindCSS.
 
+
 🛠 Tech Stack
 
 🎨 Frontend
@@ -35,6 +36,7 @@ DevShop is a fullstack e-commerce application built to showcase my skills in bot
 🗄 SQL Database (for storing users, products, and orders)
 
 🔐 JWT Authentication (for securing user sessions)
+
 
 📸 Screenshots
 
@@ -75,13 +77,3 @@ npm run dev
 📦 Improve order tracking system
 
 🛠 Add admin dashboard for managing products and orders
-
-📩 Contact
-
-If you have any questions or want to collaborate, feel free to reach out:
-
-📧 Email: your.email@example.com
-
-💼 LinkedIn: Your LinkedIn
-
-🌐 Portfolio: Your Portfolio
