@@ -4,11 +4,11 @@ import Image from "next/image";
 
 
 interface ProductProps {
-  params: Promise<{ slug: string }>; // 👈 Debe manejarse como una promesa
+  params: Promise<{ slug: string }>; 
 }
 
 export default async function Product({ params }: ProductProps) {
-  const { slug } = await params; // 👈 Ahora se espera correctamente
+  const { slug } = await params; 
 
   try {
     const product = await GetProductById(slug);
@@ -22,7 +22,7 @@ export default async function Product({ params }: ProductProps) {
 
     return (
       <div className="max-w-6xl mx-auto p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Sección de la imagen */}
+        {/* Image Section */}
         <div>
           <div className="bg-gray-100 p-4 rounded-lg">
             <Image
