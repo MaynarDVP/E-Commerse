@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 
 interface PrivateRouteProps {
   children: React.ReactNode;
-  allowedRoutes?: string[]; // Public Routes
-  restrictedRoutes?: string[]; // Private Routes
+  allowedRoutes?: string[];
+  restrictedRoutes?: string[];
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({
