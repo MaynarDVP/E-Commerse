@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { FormInput } from "@/components/FormInput";
-import { Toast } from "@/components/Toast";
+import { FormInput } from "@/component/FormInput";
+import { Toast } from "@/component/Toast";
 import { ILoginForm } from "@/Interfaces/ILoginForm";
 import { ValidateLogingForm } from "@/helpers/validations";
 import { useAuth } from "@/context/AuthContext";

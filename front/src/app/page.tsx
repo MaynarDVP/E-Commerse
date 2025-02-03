@@ -1,4 +1,4 @@
-import Cardlist from "@/components/Card";
+import Cardlist from "@/component/card";
 
 const Home: React.FC = () => { 
   return(

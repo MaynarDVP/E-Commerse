@@ -1,6 +1,6 @@
 "use client";
 
-import { Toast } from "@/components/Toast";
+import { Toast } from "@/component/Toast";
 import { useAuth } from "@/context/AuthContext";
 import { IOrders } from "@/Interfaces/IOrders";
 import { IProduct } from "@/Interfaces/IProduct";

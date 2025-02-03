@@ -1,5 +1,5 @@
 import { GetProductById } from "@/api/DataFetchs";
-import AddProduct from "@/components/Product.Buttons";
+import AddProduct from "@/component/Product.Buttons";
 import Image from "next/image";
 
 

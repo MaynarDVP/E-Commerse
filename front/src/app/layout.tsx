@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/component/navbar";
 
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
-import PrivateRoute from "@/components/Private";
+import PrivateRoute from "@/component/Private";
 
 
 const geistSans = localFont({
