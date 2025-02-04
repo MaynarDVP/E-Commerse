@@ -54,8 +54,7 @@ To run this project locally, follow these steps:
 
 📥 Clone the repository:
 
-git clone https://github.com/yourusername/devshop.git
-cd devshop
+git clone https://github.com/MaynarDVP/E-Commerse.git
 
 📦 Install dependencies:
 
@@ -63,8 +62,8 @@ npm install
 
 🔑 Set up environment variables (.env file):
 
-DATABASE_URL=your_database_connection
-JWT_SECRET=your_jwt_secret
+DATABASE_URL = your_database_connection
+JWT_SECRET = your_jwt_secret
 
 🚀 Start the development server:
 
