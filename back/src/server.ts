@@ -7,7 +7,7 @@ const app = express();
 //review
 app.use(
   cors({
-    origin: "https://e-commerse-pi.vercel.app/",
+    origin: "https://e-commerse-pi.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
