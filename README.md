@@ -9,10 +9,16 @@ DevShop is a fullstack e-commerce application built to showcase my skills in bot
 ✨ Features
 
 🔹 Fullstack Architecture: The project includes both frontend and backend implementations.
+
 🔹 User Authentication: Secure login and registration system with JWT authentication.
+
 🔹 Shopping Cart: Users can add, update, and remove items from their cart.
+
+
 🔹 Order Management: Orders are processed and stored in a SQL database.
+
 🔹 Product Catalog: Products are displayed dynamically from the backend.
+
 🔹 Responsive UI: Modern and clean user interface built with Next.js and TailwindCSS.
 
 
@@ -22,14 +28,18 @@ DevShop is a fullstack e-commerce application built to showcase my skills in bot
 
 
 ⚡ Next.js (React framework for server-side rendering)
+
 🎨 TailwindCSS (for styling)
+
 🔄 Context API (for managing authentication and cart state)
 
 
 🔧 Backend
 
 🚀 Node.js & Express.js (for handling API requests)
+
 🗄 SQL Database (for storing users, products, and orders)
+
 🔐 JWT Authentication (for securing user sessions)
 
 
@@ -63,6 +73,7 @@ To run this project locally, follow these steps:
 📥 Clone the repository:
 
 git clone https://github.com/yourusername/devshop.git
+
 cd ECommerse
 
 
@@ -74,6 +85,7 @@ npm install
 🔑 Set up environment variables (.env file):
 
 DATABASE_URL=your_database_connection
+
 JWT_SECRET=your_jwt_secret
 
 
@@ -85,5 +97,7 @@ npm run dev
 🚀 Future Improvements:
 
 💳 Implement payment integration (Stripe, PayPal, etc.)
+
 📦 Improve order tracking system
+
 🛠 Add admin dashboard for managing products and orders
