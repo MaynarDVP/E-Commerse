@@ -13,13 +13,13 @@ const Cardlist: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   //! Category
-  const categoryNames: Record<number, string> = {
-    1: "Phones",
-    2: "Computers",
-    3: "Watches",
-    4: "Tablets",
-    5: "Air-Pods",
-    6: "Home-Pods",
+  const categoryNames: Record<string, string> = {
+    "1": "Phones",
+    "2": "Computers",
+    "3": "Watches",
+    "4": "Tablets",
+    "5": "Air-Pods",
+    "6": "Home-Pods",
   };
 
   //! Fetch
