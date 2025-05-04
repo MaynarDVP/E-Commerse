@@ -9,13 +9,7 @@ interface FormInputProps {
   }
   
   export function FormInput({
-    label,
-    name,
-    type,
-    value,
-    onChange,
-    placeholder,
-    error,
+    label, name, type, value, onChange, placeholder, error,
   }: FormInputProps) {
     return (
       <div className="mt-4">
