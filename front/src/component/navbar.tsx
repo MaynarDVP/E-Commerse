@@ -123,5 +123,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-Maynard Dev_?4414
