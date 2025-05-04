@@ -15,8 +15,16 @@ const categoriesToPreLoad: ICategory[] = [
     { name: 'Printers' },
     { name: 'Monitors' },
     { name: 'Storage' },
-    { name: 'Accessories' }
-];
+    { name: 'Accessories' },
+    { name: 'Wearables' },
+    { name: 'Gaming' },
+    { name: 'PC Components' },
+    { name: 'Networking & Communication' },
+    { name: 'Smart Home/IoT' },
+    { name: 'Drones & Accessories' },
+    { name: 'Virtual/Augmented Reality' },
+    { name: 'Home Audio' },
+  ];
 
 export const preLoadCategories = async () => {
     const categories = await CategoryRepository.find();

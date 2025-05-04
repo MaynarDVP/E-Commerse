@@ -11,3 +11,12 @@ export const checkProductExists = async (itemId: number): Promise<boolean> => {
 export const getProductsService = async (): Promise<Product[]> => {
   return await ProductRepository.find();
 };
+
+/*
+! Revisar flujo para categorias
+? organizar productos por categorias, mejorar backend para que acepte multiples peticiones
+? aplicar a trabajos de programacion 
+* typing test
+? terminar crud con insomnia
+? ver git desde 0
+*/

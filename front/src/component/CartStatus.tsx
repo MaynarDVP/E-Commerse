@@ -8,7 +8,6 @@ export default function CartStatus() {
   const cartItems = items.length;
 
   return (
-    // Shopping cart with quantity of items
     <div>
       <Link href="/cart">
         <div className="relative cursor-pointer">
@@ -19,6 +18,8 @@ export default function CartStatus() {
             height={48}
             className="w-12 h-12 rounded-full hover:opacity-90 transition-opacity"
           />
+
+          {/* //! Items */}
           <span className="absolute -top-2 -right-2 bg-red-800 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
             {cartItems}
           </span>
@@ -27,3 +28,4 @@ export default function CartStatus() {
     </div>
   );
 }
+

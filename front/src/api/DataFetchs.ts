@@ -39,5 +39,24 @@ const GetProductById = async (id: string): Promise<IProduct | null> => {
   }
 };
 
+const GetCategory = async (CategoryId: string): Promise<IProduct | null> => {
+  try {
+    const products: IProduct[] = await GetProducts();
+    const Category = products.find((product) => product.categoryId.toString() === CategoryId);
 
-export { GetProducts, GetProductById }
+    if (!Category) {
+      throw new Error(`Product with id ${CategoryId} not found`);
+    }
+
+    return Category;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Error while obtaining product by id: ${error.message}`);
+    } else {
+      throw new Error("Error while obtaining product by id: An unknown error occurred");
+    }
+  }
+};
+
+
+export { GetProducts, GetProductById, GetCategory }

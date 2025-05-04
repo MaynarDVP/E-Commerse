@@ -20,6 +20,8 @@ interface IAuthContext {
   register: (RegisterForm: IRegisterForm) => void;
   GetProducts: () => Promise<IProduct[]>;
   GetProductById: (id: string) => Promise<IProduct | undefined>;
+  GetCategory: (categoryId: string) => Promise<IProduct | undefined>;
+
 }
 
 const AuthContext = createContext<IAuthContext>({
@@ -31,6 +33,7 @@ const AuthContext = createContext<IAuthContext>({
   register: async (RegisterForm: IRegisterForm) => {},
   GetProducts: async () => [],
   GetProductById: async (id: string) => undefined,
+  GetCategory: async (categoryId: string) => undefined,
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -95,9 +98,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return product;
   };
 
+  const GetCategory = async (categoryId: string): Promise<IProduct | undefined> => {
+    const products = await GetProducts();
+    const category = products.find((product) => product.categoryId.toString() === categoryId);
+    return category;
+  };
+
+
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, isAuth, token, register, GetProducts, GetProductById }}
+      value={{ user, login, logout, isAuth, token, register, GetProducts, GetProductById, GetCategory}}
     >
       {children}
     </AuthContext.Provider>
