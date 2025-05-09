@@ -6,8 +6,7 @@ import { useState } from "react";
 import CartStatus from "@/component/CartStatus";
 
 const Navbar = () => {
-  const { isAuth, user, logout } = useAuth();
-  const [searchQuery, setSearchQuery] = useState("");
+  const { isAuth, user, logout, searchQuery, setSearchQuery } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleSearch = (e: React.FormEvent) => {

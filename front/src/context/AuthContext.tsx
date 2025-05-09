@@ -21,6 +21,8 @@ interface IAuthContext {
   GetProducts: () => Promise<IProduct[]>;
   GetProductById: (id: string) => Promise<IProduct | undefined>;
   GetCategory: (categoryId: string) => Promise<IProduct | undefined>;
+  searchQuery: string;
+  setSearchQuery: (q: string) => void;
 
 }
 
@@ -34,6 +36,8 @@ const AuthContext = createContext<IAuthContext>({
   GetProducts: async () => [],
   GetProductById: async (id: string) => undefined,
   GetCategory: async (categoryId: string) => undefined,
+  searchQuery: "",
+  setSearchQuery: () => {},
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -41,6 +45,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isAuth, setIsAuth] = useState(false);
   const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState<string>(""); 
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -60,7 +65,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = async (LoginForm: ILoginForm) => {
-    if (!LoginForm) return; // Evita la advertencia de que no se usa
+    if (!LoginForm) return; 
     const res = await axios.post(`${APIFETCH}/users/login`, LoginForm);
     setUser(res.data.user);
     setToken(res.data.token);
@@ -107,7 +112,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, isAuth, token, register, GetProducts, GetProductById, GetCategory}}
+      value={{ user, login, logout, isAuth, token, register, GetProducts, GetProductById, GetCategory, searchQuery, setSearchQuery}}
     >
       {children}
     </AuthContext.Provider>

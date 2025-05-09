@@ -6,8 +6,9 @@ import { IProduct } from "@/Interfaces/IProduct";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 
+
 const Cardlist: React.FC = () => {
-  const { GetProducts } = useAuth();
+  const { GetProducts, searchQuery } = useAuth();
   const [products, setProducts] = useState<IProduct[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -45,11 +46,25 @@ const Cardlist: React.FC = () => {
 
   //! Filter to render
   const filteredProducts = useMemo(() => {
-    if (selectedCategory === "all") return products;
-    return products.filter(
-      (p) => p.categoryId.toString() === selectedCategory
-    );
-  }, [products, selectedCategory]);
+    let lista = products;
+
+    if (selectedCategory !== "all") {
+      lista = lista.filter(
+        (p) => p.categoryId.toString() === selectedCategory
+      );
+    }
+
+    if (searchQuery.trim()) {
+      const term = searchQuery.toLowerCase();
+      lista = lista.filter(
+        (p) =>
+          p.name.toLowerCase().includes(term) ||
+          p.description.toLowerCase().includes(term)
+      );
+    }
+
+    return lista;
+  }, [products, selectedCategory, searchQuery]);
 
   return (
     <div className="bg-gray-100 min-h-screen py-8">
@@ -83,12 +98,12 @@ const Cardlist: React.FC = () => {
         ))}
       </div>
 
-      {/* //? Product Image */}
+      {/* //! Product Image */}
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <Link href={`/product/${product.id}`} key={product.id}>
             <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer">
-              {/* Product Image */}
+              
               <div className="relative w-full h-48">
                 <Image
                   src={product.image}
@@ -99,7 +114,7 @@ const Cardlist: React.FC = () => {
                 />
               </div>
 
-              {/* //? Product Details */}
+              {/* //! Product Details */}
               <div className="p-4">
                 <h2 className="text-lg font-semibold text-gray-800 truncate">
                   {product.name}

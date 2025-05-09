@@ -98,8 +98,8 @@ const Dashboard: React.FC = () => {
                           <Image
                             src={product.image}
                             alt={product.name}
-                            width={40}
-                            height={40}
+                            layout="fill"
+                            objectFit="contain"
                             className="w-16 h-16 object-cover rounded"
                           />
                           <div>
