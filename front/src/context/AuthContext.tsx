@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { IRegisterForm } from "@/Interfaces/IRegisterForm";
 import { IProduct } from "@/Interfaces/IProduct";
 
-const APIFETCH = process.env.NEXT_PUBLIC_APIFETCH;
+const APIFETCH = `https://e-commerse-production-ae23.up.railway.app/`;
 
 interface IAuthContext {
   user: IUser | null;
